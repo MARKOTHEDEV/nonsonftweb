@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from pickle import DICT
+from django.shortcuts import redirect, render
 
 from django.contrib import messages
 
@@ -49,3 +50,38 @@ def contact(request):
 def privacy(request):
 
     return render(request,'privacy.html')
+
+def survey(request):
+    context  =dict()
+    closeSurvey = models.closeSurvey.objects.first()
+    if closeSurvey.isOpen ==False:
+        messages.success(request, 'Assessment Closed')
+    
+        return redirect('indexView')
+    if request.method == 'POST':
+        POST = dict(request.POST)
+        email = POST['email'][0]
+        discordID = POST['discordID'][0]
+        if models.Survey.objects.all().filter(email=email,).exists():
+            messages.success(request, 'You already took this test')
+            return render(request,'survey.html',
+            {'quetions':models.Quetions.objects.values()}
+            )
+        quetions = models.Quetions.objects.all()
+        for q in quetions:
+            answer = POST.get(q.name)[0]
+            models.Survey.objects.create(
+                email=email,
+                discordID=discordID,
+                quetion=q.name,
+                anser=answer
+            )
+    
+
+        # print(dict(request.POST)['email']) 
+
+        messages.success(request, 'Thank You We would get back to you through your email')
+
+    return render(request,'survey.html',
+    {'quetions':models.Quetions.objects.values()}
+    )
