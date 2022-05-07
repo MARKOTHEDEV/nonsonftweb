@@ -7,5 +7,5 @@ urlpatterns=[
     path('',views.index,name="indexView"),
     path('contact/',views.contact,name="contact"),
     path('privacy/',views.privacy,name="privacy"),
-    path('assessment/',views.survey,name="assessment"),
+
 ]
