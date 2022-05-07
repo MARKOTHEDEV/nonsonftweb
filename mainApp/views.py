@@ -24,6 +24,7 @@ def index(request):
         )
         cv.save()
         messages.success(request, 'Thanks for your intrest we would get back to you soon!!')
+        return render(request,'index.html')
 
     return render(request,'index.html')
 def contact(request):
