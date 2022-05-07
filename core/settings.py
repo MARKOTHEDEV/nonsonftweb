@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-s^7kdc@n%nc@ewpa1j4x%n$@1sbh770u-$v2-z34+u2v7es0*4
 DEBUG = (os.environ['DEBUG']=="True")
 
 ALLOWED_HOSTS = [
-    "https://www.discordchatterscommunity.org","http://www.discordchatterscommunity.org"
+    "discordchatterscommunity.org",
 ]
 
 
