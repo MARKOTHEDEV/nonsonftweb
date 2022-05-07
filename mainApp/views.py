@@ -11,20 +11,20 @@ from . import models
 
 def index(request):
     
-    if request.method =='POST':
-        postedData = request.POST
-        name = postedData.get('name',None)
-        english_qualification = postedData.get('english_qualification',None)
-        country = postedData.get('country',None)
+    # if request.method =='POST':
+    #     postedData = request.POST
+    #     name = postedData.get('name',None)
+    #     english_qualification = postedData.get('english_qualification',None)
+    #     country = postedData.get('country',None)
 
-        cv = models.CvData.objects.create(
-            name = name,
-            english_qualification=english_qualification,
-            country = country
-        )
-        cv.save()
-        messages.success(request, 'Thanks for your intrest we would get back to you soon!!')
-        return render(request,'index.html')
+    #     cv = models.CvData.objects.create(
+    #         name = name,
+    #         english_qualification=english_qualification,
+    #         country = country
+    #     )
+    #     cv.save()
+    #     messages.success(request, 'Thanks for your intrest we would get back to you soon!!')
+    #     return render(request,'index.html')
 
     return render(request,'index.html')
 def contact(request):
