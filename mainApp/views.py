@@ -26,9 +26,6 @@ def index(request):
     #     messages.success(request, 'Thanks for your intrest we would get back to you soon!!')
     #     return render(request,'index.html')
 
-    return render(request,'index.html')
-def contact(request):
-        
     if request.method =='POST':
         postedData = request.POST
         name = postedData.get('your-name',None)
@@ -37,15 +34,14 @@ def contact(request):
 
 
         contact= models.ContactUs.objects.create(
-            name = name,
-            email=email,
-            message = message
+        name = name,
+        email=email,
+        message = message
         )
         contact.save()
         messages.success(request, 'Thanks for reaching! out  we would get back to you soon!!')
-   
-    return render(request,'contact.html')
 
+    return render(request,'index.html')
 
 
 def privacy(request):

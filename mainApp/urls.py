@@ -5,7 +5,7 @@ urlpatterns=[
 
 
     path('',views.index,name="indexView"),
-    path('contact/',views.contact,name="contact"),
+    # path('contact/',views.contact,name="contact"),
     path('privacy/',views.privacy,name="privacy"),
 
 ]
