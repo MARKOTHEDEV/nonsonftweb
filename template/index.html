@@ -32,6 +32,23 @@
 
     <!-- Template Stylesheet -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <style>
+        .markoGrid{
+            
+            display:grid;grid-template-columns:1fr;
+
+
+        }
+
+        @media screen  and (min-width:500px){
+         
+            .markoGrid{
+            
+                display:grid;grid-template-columns:1fr 1fr;
+        }
+            }
+</style>
 </head>
 
 <body>
@@ -730,7 +747,7 @@
                     <h5 class="section-title ff-secondary text-center text-primary fw-normal">Testimonial</h5>
                     <h1 class="mb-5">Our Clients Say!!!</h1>
                 </div>
-                <div class="owl-carousel testimonial-carousel">
+                <div class="markoGrid">
                     <div class="testimonial-item bg-transparent border rounded p-4">
                         <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
                         <p>Great! Compared to everything else I’ve ever used, this is the chatter communitiy. </p>
